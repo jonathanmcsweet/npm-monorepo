@@ -5,5 +5,6 @@ module.exports = {
   publish: require('./publish'),
   link: require('./link'),
   run: require('./run'),
-  test: require('./test')
+  test: require('./test'),
+  clean: require('./clean')
 }

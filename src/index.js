@@ -17,6 +17,7 @@ function printUsage () {
   - publish
   - run
   - test
+  - clean
 `)
 }
 

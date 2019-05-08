@@ -9,9 +9,6 @@ module.exports = function install (args, flags, opts, cb) {
   try {
     const ctx = getContext(opts.cwd)
 
-    console.log('opts', opts)
-    console.log('ctx', ctx)
-
     Promise.all(
       ctx.config.packages.map(relativePackagesPattern => {
         const packagesPattern = path.resolve(
@@ -19,7 +16,6 @@ module.exports = function install (args, flags, opts, cb) {
           relativePackagesPattern
         )
 
-        console.log('packagesPattern', packagesPattern)
         return glob(packagesPattern)
       })
     )

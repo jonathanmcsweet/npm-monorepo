@@ -23,7 +23,6 @@ module.exports = function run (args, flags, opts, cb) {
           relativePackagesPattern
         )
 
-        console.log('packagesPattern', packagesPattern)
         return glob(packagesPattern)
       })
     )

@@ -23,7 +23,7 @@ exports.cmd = function cmd (dirPath, command, flags, opts) {
     return arr
   }, [])
 
-  console.log('cmd spawn', dirPath)
+
   return spawn(pkg.name, 'npm', [command].concat(params), {
     cwd: dirPath,
     quiet: opts.quiet
@@ -39,7 +39,6 @@ exports.run = function run (script, dirPath, opts) {
 
   if (!pkg.scripts || !pkg.scripts[script]) return Promise.resolve() // not a script
 
-  console.log('run spawn')
   return spawn(pkg.name, 'npm', ['run', script], {
     cwd: dirPath,
     quiet: opts.quiet
@@ -55,7 +54,6 @@ exports.test = function test (dirPath, opts) {
 
   if (!pkg.scripts || !pkg.scripts.test) return Promise.resolve() // not a script
 
-  console.log('test spawn')
   return spawn(pkg.name, 'npm', ['test'], {
     cwd: dirPath,
     quiet: opts.quiet

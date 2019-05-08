@@ -2,6 +2,10 @@
   "env": {"jest": true},
   "extends": "standard",
   "rules": {
-    "object-curly-spacing": ["error", "always"]
+    "object-curly-spacing": ["error", "always"],
+    "indent": "off",
+    "padded-blocks": "off",
+    "comma-dangle": "off",
+    "no-multiple-empty-lines": "off"
   }
 }
