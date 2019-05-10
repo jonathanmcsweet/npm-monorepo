@@ -1,8 +1,10 @@
 const path = require('path')
 const glob = require('glob-promise')
+const fs = require('fs')
 
-const modelPackagesArray = packagesArr =>
-  packagesArr
+const modelPackagesArray = packagesArr => {
+
+  const final = packagesArr
   .reduce((acc, srcPath, idx, arr) =>
     acc.concat(
       arr
@@ -20,6 +22,8 @@ const modelPackagesArray = packagesArr =>
       })
     ), [])
 
+    return final
+}
 
 const mapPackagesPattern = ctx => relativePackagesPattern =>
   glob(path.resolve(

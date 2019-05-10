@@ -29,23 +29,33 @@ Add a `monorepo.json` to the root of the project. Example:
 }
 ```
 
+#### Install Packages
 To install all the sub-package dependencies, run:
 
 ```sh
 simple-monorepo install
 ```
-
-To link packages together to test interdependent changes (currently buggy)
+#### Link Packages
+To link packages together to test interdependent changes.
 ```sh
 simple-monorepo link
 ```
+Excludes a symlink to the actual package receiving the links.
 
+The default behavior for link is to only link to packages/* that are actually present in node_modules after installation. You can override this behavior and force symlinks for all packages, excluding the actual one being given symlinks, by running:
+
+```sh
+simple-monorepo link -- --all
+```
+
+#### Publish Packages
 To publish all the sub-package dependencies, run:
 
 ```sh
 simple-monorepo publish
 ```
 
+#### Run Commands
 To run a command script in each of the packages, run:
 
 ```sh
@@ -59,7 +69,7 @@ simple-monorepo run {{command}}
 `simple-monorepo` may be used as a Node.js module:
 
 ```js
-const monorepo = require('monorepo')
+const monorepo = require('simple-monorepo')
 
 monorepo(
   ['test'],
